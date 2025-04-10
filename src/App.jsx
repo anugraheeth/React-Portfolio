@@ -68,7 +68,7 @@ const portfolioData = {
   contact: {
     email: "anugraheethmohan@gmail.com",
     github: "https://github.com/anugraheeth",
-    linkedin: "https://linkedin.com/in/anugraheeth"
+    linkedin: "https://linkedin.com/in/anugraheethmohanan",
   }
 };
 
