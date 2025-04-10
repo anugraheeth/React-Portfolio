@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun, ArrowRight, Github, Linkedin, Mail, ExternalLink, ChevronDown, PlayCircle, PointerIcon, Link } from 'lucide-react';
-import logo from '../public/logo.svg';
+import logo from '../public/Logo.svg';
 import me from './assets/me.png';
 import blip from './assets/Blip.png';
 import schedulo from './assets/Schedulo.png';
