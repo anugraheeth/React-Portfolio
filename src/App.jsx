@@ -5,6 +5,7 @@ import me from './assets/me.png';
 import blip from './assets/Blip.png';
 import schedulo from './assets/Schedulo.png';
 import terminal from './assets/terminal.png';
+import preview from './assets/Preview.png';
 
 // Base portfolio data scraped from anugraheethmohanan.netlify.app
 const portfolioData = {
@@ -343,7 +344,7 @@ export default function Portfolio() {
       <Section id="projects">
         <div className="container mx-auto">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-blue-500">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12   ">Featured Projects</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioData.projects.map((project, index) => (
                 <div 
@@ -397,9 +398,53 @@ export default function Portfolio() {
           </ScrollReveal>
         </div>
       </Section>
+      {/* Resume   */}
+    <Section id="resume" className={`${theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100/50'} py-20 px-6 text-white`}>
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    {/* Resume Image */}
+    <ScrollReveal>
+      <div className="relative flex justify-center">
+        <div className="absolute h-64 -top-4 -left-4 bg-blue-400 rounded-xl blur-xl opacity-30 z-0"></div>
+        <img
+          src={preview}
+          alt="Resume preview"
+          className="rounded-xl relative z-10 object-contain max-h-96 w-full"
+        />
+      </div>
+    </ScrollReveal>
+
+    {/* Content */}
+    <ScrollReveal>
+      <div className="space-y-6">
+        <h2 className="text-4xl font-bold text-blue-500">
+          View My Resume 📄
+        </h2>
+        <p className="text-lg leading-relaxed text-gray-300">
+          Explore my skills, projects, education, and work experiences all in one place. Designed with clarity and professionalism to reflect my journey as a full-stack developer.
+        </p>
+        <ul className="space-y-2 text-base text-gray-400">
+          <li>🛠 Tech Stack Highlights</li>
+          <li>📚 Academic Projects & Internships</li>
+          <li>💡 Freelance & Open Source Contributions</li>
+        </ul>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 pt-4">
+          <a
+            href="/Anugraheeth_Resume.pdf"
+            download
+            className={`px-6 py-3 rounded-lg flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white transition-colors`}
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </ScrollReveal>
+  </div>
+</Section>
 
       {/* Experience Section */}
-      <Section id="experience" className={`${theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100/50'}`}>
+      <Section id="experience" >
         <div className="container mx-auto">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-blue-500">Work Experience</h2>
@@ -431,7 +476,7 @@ export default function Portfolio() {
       </Section>
 
       {/* Contact Section */}
-      <Section id="contact">
+      <Section id="contact" className={`${theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100/50'}`}>
         <div className="container mx-auto max-w-4xl">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-500">Get In Touch</h2>
