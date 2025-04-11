@@ -344,7 +344,7 @@ export default function Portfolio() {
       <Section id="projects">
         <div className="container mx-auto">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-12   ">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-12  text-blue-500 ">Featured Projects</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioData.projects.map((project, index) => (
                 <div 
@@ -419,10 +419,10 @@ export default function Portfolio() {
         <h2 className="text-4xl font-bold text-blue-500">
           View My Resume 📄
         </h2>
-        <p className="text-lg leading-relaxed text-gray-300">
+        <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'} text-lg leading-relaxed text-gray-300`}>
           Explore my skills, projects, education, and work experiences all in one place. Designed with clarity and professionalism to reflect my journey as a full-stack developer.
         </p>
-        <ul className="space-y-2 text-base text-gray-400">
+        <ul className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} space-y-2 text-base text-gray-400`}>
           <li>🛠 Tech Stack Highlights</li>
           <li>📚 Academic Projects & Internships</li>
           <li>💡 Freelance & Open Source Contributions</li>
@@ -483,7 +483,7 @@ export default function Portfolio() {
             <p className="text-lg mb-8">
               I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open!
             </p>
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col md:flex-row gap-8 justify-center">
               <a 
                 href={`mailto:${portfolioData.contact.email}`}
                 className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
