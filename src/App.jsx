@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Menu, X, Moon, Sun, ArrowRight, Github, Linkedin, Mail, ExternalLink, ChevronDown, PlayCircle, PointerIcon, Link } from 'lucide-react';
 import logo from '../public/Logo.svg';
 import me from './assets/me.png';
@@ -6,6 +8,7 @@ import blip from './assets/Blip.png';
 import schedulo from './assets/Schedulo.png';
 import terminal from './assets/terminal.png';
 import preview from './assets/Preview.png';
+import ContactForm from './components/contact';
 
 // Base portfolio data scraped from anugraheethmohanan.netlify.app
 const portfolioData = {
@@ -149,6 +152,8 @@ const ScrollReveal = ({ children }) => {
 
 // Main App Component
 export default function Portfolio() {
+
+
   const [theme, setTheme] = useState('dark');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -241,7 +246,18 @@ export default function Portfolio() {
           </div>
         )}
       </header>
-
+      {/* Toast Container */}
+      <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={theme === 'dark' ? 'dark' : 'light'} // Dynamic theming
+        />
       {/* Hero Section */}
       <Section id="hero" className="min-h-screen flex items-center pt-32">
         <div className="container mx-auto">
@@ -479,10 +495,37 @@ export default function Portfolio() {
       <Section id="contact" className={`${theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100/50'}`}>
         <div className="container mx-auto max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-500">Get In Touch</h2>
-            <p className="text-lg mb-8">
-              I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open!
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-500">Get In Touch</h2>
+                  <p className="text-lg mb-8">
+                    I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, my inbox is always open!
+                  </p>
+                  <div className="mt-12 space-y-4">
+                    <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">
+                      Prefer a quick chat instead? Let’s connect instantly!
+                    </p>
+                    <a
+                      href="https://wa.me/918078731204?text=Hi%20Anugraheeth%2C%20I%20just%20visited%20your%20portfolio!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300"
+                    >
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20.52 3.48A11.89 11.89 0 0 0 12 0C5.36 0 .04 5.31 0 11.86a11.82 11.82 0 0 0 1.69 6.06L0 24l6.3-1.65a11.94 11.94 0 0 0 5.7 1.45h.05C18.65 23.8 24 18.5 24 12a11.89 11.89 0 0 0-3.48-8.52zM12 21.51a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.73.97 1-3.63-.23-.37A9.43 9.43 0 0 1 2.54 12C2.58 6.91 6.9 2.6 12 2.6a9.38 9.38 0 0 1 6.65 2.77A9.28 9.28 0 0 1 21.4 12c0 5.12-4.31 9.42-9.4 9.51zm5.4-7.22c-.3-.15-1.78-.88-2.06-.98s-.48-.15-.69.15-.79.98-.97 1.18-.36.22-.66.07a7.68 7.68 0 0 1-2.28-1.41 8.55 8.55 0 0 1-1.59-2.01c-.17-.3 0-.46.13-.6.13-.13.3-.34.45-.52s.2-.3.3-.49a.6.6 0 0 0 0-.6c-.07-.15-.69-1.65-.95-2.27-.25-.6-.5-.52-.69-.53h-.6a1.15 1.15 0 0 0-.84.39 3.53 3.53 0 0 0-1.1 2.62 6.13 6.13 0 0 0 1.3 3.17c.15.2 2 3.04 4.84 4.26 1.78.76 2.47.83 3.37.7.54-.08 1.78-.73 2.03-1.43a2.37 2.37 0 0 0 .17-1.43c-.07-.13-.27-.2-.56-.34z" />
+                      </svg>
+                      Message Me on WhatsApp
+                    </a>
+                  </div>
+              </div>
+              <div>
+                <ContactForm theme={theme} />
+              </div>
+          </div>
             <div className="flex flex-col md:flex-row gap-8 justify-center">
               <a 
                 href={`mailto:${portfolioData.contact.email}`}
@@ -534,6 +577,8 @@ export default function Portfolio() {
           </p>
         </div>
       </footer>
+      
     </div>
+    
   );
 }
